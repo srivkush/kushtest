@@ -20,7 +20,7 @@ import static org.hamcrest.core.Is.is;
 
 import org.junit.Test;
 
-import com.nttdata.test.service.Greeting;
+import com.nttdata.test.model.Greeting;
 
 public abstract class AbstractBoosterApplicationTest {
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.nttdata.test.service;
+package com.nttdata.test.model;
 
 // tag::snippet-greeting[]
 public class Greeting {
