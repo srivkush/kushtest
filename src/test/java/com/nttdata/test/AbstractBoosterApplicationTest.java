@@ -24,12 +24,13 @@ import com.nttdata.test.model.Greeting;
 
 public abstract class AbstractBoosterApplicationTest {
 
-    private static final String GREETING_PATH = "api/greeting";
+    private static final String GREETING_PATH = "api/v1/greetings/sayHello";
 
     @Test
     public void testGreetingEndpoint() {
         given()
            .baseUri(baseURI())
+           .param("name", "World")
            .get(GREETING_PATH)
            .then()
            .statusCode(200)

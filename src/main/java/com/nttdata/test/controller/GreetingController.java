@@ -1,12 +1,12 @@
 package com.nttdata.test.controller;
 
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.QueryParam;
-
 import org.springframework.data.rest.webmvc.BasePathAwareController;
 import org.springframework.hateoas.MediaTypes;
+import org.springframework.hateoas.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nttdata.test.model.Greeting;
 
@@ -15,9 +15,10 @@ import com.nttdata.test.model.Greeting;
 public class GreetingController {
 
 	@GetMapping(value = "/sayHello", produces = MediaTypes.HAL_JSON_VALUE)
-	public Greeting greeting(@QueryParam("name") @DefaultValue("World") String name) {
+	public ResponseEntity<Resource<Greeting>> greeting(@RequestParam("name") String name) {
 		final String message = String.format(Greeting.FORMAT, name);
-		return new Greeting(message);
+		Resource<Greeting> resource= new Resource<>(new Greeting(message));
+		return ResponseEntity.ok(resource);
 	}
 
 }
